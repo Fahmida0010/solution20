@@ -1,0 +1,192 @@
+# JavaScript Fundamentals – Basic Notes
+
+## 1. Function
+A function is a reusable block of code designed to perform a specific task.
+
+```js
+function greet() {
+    console.log("Hello");
+}
+```
+
+## 2. Function Declaration
+Creating or defining a function is called function declaration.
+
+```js
+function add(a, b) {
+    return a + b;
+}
+```
+
+## 3. Function Invocation / Function Call
+Executing a function is called function invocation or function call.
+
+```js
+add(10, 20);
+```
+
+## 4. Parameter
+A parameter is a variable listed in a function definition that receives an input value.
+
+```js
+function add(a, b) {
+    return a + b;
+}
+```
+Here, `a` and `b` are parameters.
+
+## 5. Argument
+An argument is the actual value passed to a function when calling it.
+
+```js
+add(10, 20);
+```
+Here, `10` and `20` are arguments.
+
+## 6. Return
+`return` sends a value back from a function to its caller.
+
+```js
+function add(a, b) {
+    return a + b;
+}
+
+let result = add(10, 20);
+console.log(result); // 30
+```
+
+**Rule:** A function without an explicit return statement returns `undefined`.
+
+## 7. console.log()
+`console.log()` displays information in the console. It does not return the displayed value.
+
+```js
+console.log("Hello"); // Hello
+```
+
+## 8. undefined
+`undefined` means a variable has not been assigned a value, or a function has not returned an explicit value.
+
+```js
+function test() {
+    console.log("Hello");
+}
+
+let result = test();
+console.log(result); // undefined
+```
+
+## 9. Variable
+A variable is a named container used to store data.
+
+```js
+let name = "Fahmida";
+const age = 21;
+var city = "Sylhet";
+```
+
+- `let`: Can be reassigned.
+- `const`: Cannot be reassigned.
+- `var`: Function-scoped and can be redeclared.
+
+## 10. String
+A string is a sequence of characters enclosed in quotes.
+
+```js
+let name = "Fahmida";
+```
+
+## 11. String Concatenation
+Combining multiple strings into one string is called concatenation.
+
+```js
+let result = "Hello" + " " + "World";
+```
+
+Output: `Hello World`
+
+## 12. += Operator
+The `+=` operator adds a value to the existing variable and assigns the result back.
+
+```js
+let result = "";
+result += "#";
+result += "#";
+
+console.log(result); // ##
+```
+
+## 13. repeat() Method
+The `repeat()` method repeats a string a specified number of times.
+
+```js
+"#".repeat(3); // ###
+" ".repeat(3); // Three spaces
+```
+
+## 14. For Loop
+A for loop executes a block of code repeatedly while a condition is true.
+
+```js
+for (let i = 1; i <= 5; i++) {
+    console.log(i);
+}
+```
+
+- Initialization: `let i = 1`
+- Condition: `i <= 5`
+- Increment: `i++`
+
+## 15. Condition (if)
+An `if` statement executes code only when a specified condition is true.
+
+```js
+if (i < n) {
+    console.log("Continue");
+}
+```
+
+## 16. Newline Character (\n)
+`\n` represents a newline character. It moves text to the next line.
+
+```js
+console.log("Hello\nWorld");
+```
+
+## 17. Function Expression
+A function stored inside a variable is called a function expression.
+
+```js
+const add = function(a, b) {
+    return a + b;
+};
+
+console.log(add(10, 20));
+```
+
+## 18. Comments
+Comments are used to explain code. JavaScript ignores comments during execution.
+
+```js
+// Single-line comment
+
+/*
+Multi-line
+comment
+*/
+```
+
+---
+
+## Important Rules to Remember
+
+1. Declaring a function does not execute it. You must call it.
+2. Parameters are defined in the function; arguments are passed during the function call.
+3. `return` sends a value back; `console.log()` displays a value.
+4. A function without an explicit return returns `undefined`.
+5. Code after `return` inside the same execution path is not executed.
+6. `i++` increases the value of `i` by 1.
+7. `===` checks both value and data type.
+8. `=` assigns a value; `==` compares values with type coercion; `===` compares strictly.
+9. `\n` creates a new line in a string.
+10. Always check function parameters, return values, and edge cases when solving coding problems.
