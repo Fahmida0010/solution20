@@ -102,3 +102,24 @@ console.log(gradingStudents([84, 29, 57, 33]));
 // The main idea is to iterate through each grade. If a grade is below 38, we keep it unchanged. Otherwise,
 //  we calculate the next multiple of 5 using Math.ceil(grade / 5) * 5. Then we calculate the difference. 
 //  If the difference is less than 3, we round up; otherwise, we keep the original grade. Finally, we return the new array."
+// example problem 2#####
+var studentGrades = function (grades) {
+    let result = [];
+    for (let grade of grades) {
+        if (grade < 40) {
+            result.push(grade);
+        }else{
+            let nextMultiple = Math.ceil(grade / 10) * 10;
+            if (nextMultiple - grade < 4) {
+                result.push(nextMultiple);
+            } else {
+                result.push(grade);
+            }
+          
+        }
+         
+    }
+    return result;    //মনে রাখবে: return সব iteration শেষ হওয়ার পরে execute হতে হবে।
+    
+}
+        console.log(studentGrades( [87, 76, 39, 92, 64]));
