@@ -190,3 +190,4 @@ comment
 8. `=` assigns a value; `==` compares values with type coercion; `===` compares strictly.
 9. `\n` creates a new line in a string.
 10. Always check function parameters, return values, and edge cases when solving coding problems.
+

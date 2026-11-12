@@ -52,3 +52,8 @@ var solution = function(str) {
 
     return reversed;
 };
+console.log(solution("hello"));
+console.log(solution("world"));      // dlrow
+console.log(solution("Bangladesh")); // hsedalgnaB
+console.log(solution(""));            // ""
+console.log(solution("a"));           // a
