@@ -239,3 +239,169 @@
 // What is the scope chain used for? Option A: loop control, Option B: variable resolution, Option C: async handling, Option D: memory cleanup.
 
 // * **Answer:** Option B: variable resolution
+
+
+let a = {x:1};
+let b = a;
+a = {x:2};
+console.log(b.x);
+
+// ekhane 
+// let a = {x:1}
+// একটি object তৈরি হলো। a সেই object-টিকে reference করছে।
+// a = {x:2};
+// এখানে a-কে নতুন object দেওয়া হচ্ছে। কিন্তু b আগের object-টিকেই reference করছে।
+// JavaScript-এ asynchronous কাজের জন্য বিভিন্ন queue থাকে।
+
+// দুটি গুরুত্বপূর্ণ queue:
+// - Macrotask queue: setTimeout, setInterval, DOM events ইত্যাদি।
+// - Microtask queue: Promise.then(), queueMicrotask(), MutationObserver ইত্যাদি।
+
+// example
+console.log("Start");
+
+setTimeout(() => {
+    console.log("Timeout");
+}, 0);
+
+Promise.resolve().then(() => {
+    console.log("Promise");
+});
+
+console.log("End");
+
+// output//
+// Start
+// End
+// Promise
+// Timeout
+
+// কেন এমন হলো?
+// 1. Start synchronous, তাই প্রথমে execute।
+// 2. setTimeout callback macrotask queue-তে যায়।
+// 3. Promise callback microtask queue-তে যায়।
+// 4. End synchronous, তাই Promise-এর আগেই execute।
+// 5. Call stack খালি হলে microtask queue execute হয়।
+// 6. এরপর macrotask queue থেকে Timeout execute হয়।
+
+// Execution order
+// 1. Synchronous code
+// 2. Microtask queue
+// 3. Macrotask queue
+
+for (var i=0; i<3; i++){
+    setTimeout(()=>console.log(i),0);
+}
+
+// Answer: 3 3 3
+
+
+// প্রথমে loop বুঝি:
+// Iteration	i-এর value
+// 1st	         0
+// 2nd	         1
+// 3rd           2
+// Loop শেষ	     3
+
+// এখন প্রশ্ন হলো, setTimeout কখন execute হবে?
+
+// setTimeout asynchronous। তাই loop শেষ হওয়ার পর callback-গুলো execute হবে।
+
+// কিন্তু এখানে var ব্যবহার করা হয়েছে।
+
+// var হলো function-scoped। অর্থাৎ তিনটি callback একই i variable-কে reference করছে।
+
+// Loop শেষ হওয়ার পর i = 3।
+
+// তাই তিনটি callback-ই 3 print করবে।
+// 3
+// 3
+// 3
+
+
+// What will be the output?
+// console.log(NaN === NaN);
+
+
+// Answer: B. false
+// NaN অর্থ Not a Number।
+
+console.log(NaN === NaN); // false
+
+// কারণ JavaScript-এর নিয়ম অনুযায়ী NaN নিজেকেও equal মনে করে না।
+
+// তাহলে NaN check করব কীভাবে?
+console.log(Number.isNaN(NaN)); // true
+
+console.log(isNaN("hello"));        // true
+console.log(Number.isNaN("hello")); // false
+
+// NaN === NaN সবসময় false।
+
+let x = 10;
+
+(function(){
+    console.log(x);
+    let x = 20;
+})();
+
+// Answer: C. ReferenceError
+// এটি Temporal Dead Zone (TDZ)-এর উদাহরণ।
+// // let x = 10;
+// Global scope-এ x = 10।
+
+// এরপর IIFE (Immediately Invoked Function Expression) execute হয়:
+
+// Temporal Dead Zone (TDZ)
+
+// let এবং const variable-এর declaration-এর শুরু থেকে initialization হওয়ার আগ পর্যন্ত সময়কে TDZ বলে।
+
+
+// What does Symbol provide?
+// Options:
+// - A. Unique identifiers
+// - B. Numbers
+// - C. Strings
+// - D. Arrays
+// Answer: A. Unique identifiers
+// JavaScript-এর Symbol হলো একটি primitive data type। এটি unique identifier তৈরি করতে ব্যবহার করা হয়।
+
+
+// . Lexical environment determines scope based on what?
+// Options:
+// - A. Run time
+// - B. Code structure
+// - C. Async queue
+// - D. Browser
+// Answer: B. Code structure
+// Lexical scope নির্ধারিত হয় কোড কোথায় লেখা হয়েছে, তার উপর।
+
+// অর্থাৎ একটি function কোন scope-এর ভিতরে declare করা হয়েছে, সেটিই তার outer scope নির্ধারণ করে।
+
+// Example:
+// let name = "Global";
+
+// function outer() {
+//     let age = 21;
+
+//     function inner() {
+//         console.log(name);
+//         console.log(age);
+//     }
+
+//     inner();
+// }
+
+// outer();
+
+
+// Output:
+// Global
+// 21
+
+
+// কেন?
+
+// inner() function-টি outer() function-এর ভিতরে লেখা হয়েছে। তাই inner() তার নিজের scope-এর পাশাপাশি outer() এবং global scope-এর variable-ও access করতে পারে।
+
+// এটিই lexical scope-এর ধারণা।
