@@ -70,8 +70,8 @@
 // [1, 3, 6, 10]
 
 var runningSum = function (nums){
-    let sum = 0;
-    let result = [];
+    let sum = 0; //যোগফল রাখার জন্য variable
+    let result = []; //নতুন array তৈরি
    for (let i = 0; i<nums.length; i++){
     sum = sum + nums [i];
     result.push(sum);
@@ -84,3 +84,36 @@ console.log(runningSum([1,2,3,4]));
 
 console.log(runningSum([1,1,1,1,1]));
 // [1,2,3,4,5]
+
+// প্রতিটি লাইনের কাজ কী?
+// Code	কাজ
+// let sum = 0	           যোগফল রাখার জন্য variable
+// let result = []	        নতুন array তৈরি
+// i = 0	                প্রথম index থেকে শুরু
+// i < nums.length       	array-এর শেষ পর্যন্ত loop
+// sum += nums[i]	        বর্তমান সংখ্যা যোগ
+// result.push(sum)	        যোগফল array-তে রাখা
+// return result	       final array return করা
+
+// একটি বিষয় মনে রাখবে:
+
+// sum += nums[i] এবং sum = sum + nums[i] একই কাজ করে।
+
+// Time Complexity ও Space Complexity
+// Time Complexity: O(n)
+
+// কারণ array-তে যতগুলো element থাকবে, loop ঠিক ততবার চলবে।
+
+// যেমন:
+// - 4 elements → 4 iterations
+// - 100 elements → 100 iterations
+// - 1000 elements → 1000 iterations
+// Space Complexity: O(n)
+
+// কারণ আমরা নতুন একটি result array তৈরি করছি, যেখানে n সংখ্যক element থাকবে।
+// 7. এবার তোমার Practice!
+// এখন আমি তোমাকে একটি ছোট প্রশ্ন দিচ্ছি। নিজে solve করার চেষ্টা করো।
+// Question:
+
+// যদি input হয়:
+// nums = [2, 5, 1, 3]
