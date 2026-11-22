@@ -1,0 +1,28 @@
+Types & Interfaces
+Difference between type and interface.
+When would you use union vs intersection types?
+What is type inference in TypeScript?
+Explain optional chaining and nullish coalescing.
+Difference between any, unknown, and never.
+How does structural typing work?
+What is readonly and how is it enforced?
+
+//answers:
+"Both type and interface are used to define the structure of data in TypeScript. However, interfaces are mainly used to define object structures and support declaration merging. On the other hand, type aliases are more flexible because they support unions, intersections, primitive types, and tuples. I generally use interfaces for object structures and types for complex type combinations."
+//Intersection মানে হলো একাধিক type একসঙ্গে combine করা।
+
+ধরো, তোমার কাছে দুটি interface আছে।
+Union মানে হলো একাধিক type-এর মধ্যে যেকোনো একটি হতে পারবে।
+
+"Union types allow a variable to have one of several possible types. We use the pipe symbol. For example, a variable can be either a string or a number.
+
+Intersection types combine multiple types into one. We use the ampersand symbol. The resulting type must satisfy all the combined types.
+
+I use union when a value can have different possible types, and intersection when I need to combine multiple object structures."
+
+English Interview Answer
+"Optional chaining allows us to safely access nested object properties without throwing an error when a property is null or undefined. We use the ?. operator.
+
+Nullish coalescing provides a default value when the left-hand side is null or undefined. We use the ?? operator.
+
+Optional chaining prevents errors during property access, while nullish coalescing helps us handle missing values."
