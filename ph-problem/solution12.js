@@ -51,3 +51,19 @@ console.log("Updated Array:", nums2.slice(0, k2));
 
 // . প্রথমে Array-টা দেখো
 // let nums = [1, 1, 2];
+
+// . i এবং j-এর Full Form কী?
+// আসলে i এবং j-এর কোনো নির্দিষ্ট official full form নেই।
+
+// এগুলো সাধারণত Index variables বা Loop Counter হিসেবে ব্যবহার করা হয়।
+// - i = সাধারণত প্রথম Loop Counter।
+// - j = সাধারণত দ্বিতীয় Loop Counter।
+// এগুলো প্রচলিত Naming Convention।
+
+// Loop চলার সময় i-এর মান 0 → 1 → 2 → 3 হয়।
+// অর্থাৎ i দিয়ে আমরা Array-এর প্রতিটি Position Access করতে পারি।
+// ৩. তাহলে j কেন ব্যবহার করা হয়?
+// যখন একই সময়ে দুটি Position নিয়ে কাজ করতে হয়, তখন দ্বিতীয় Variable হিসেবে j ব্যবহার করা হয়।
+
+// i = সর্বশেষ Unique Number-এর Position মনে রাখে।
+// j = সামনে এগিয়ে প্রতিটি Number পরীক্ষা করে।
